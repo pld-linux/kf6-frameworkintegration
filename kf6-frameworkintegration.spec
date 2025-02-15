@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.10
+%define		kdeframever	6.11
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
 Summary:	HTML rendering engine
 Name:		kf6-%{kfname}
-Version:	6.10.0
+Version:	6.11.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	48667bf57a3d1a1b2d4bff5e5aebca86
+# Source0-md5:	e5ba9f692c12dc7f3f4e2291aca802d7
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -56,8 +56,8 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
-#Obsoletes:	kf5-%{kfname} < %{version}
 Requires:	kf6-dirs
+#Obsoletes:	kf5-%{kfname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
@@ -70,8 +70,8 @@ using KJS for JavaScript support.
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
-#Obsoletes:	kf5-%{kfname}-devel < %{version}
 Requires:	%{name} = %{version}-%{release}
+#Obsoletes:	kf5-%{kfname}-devel < %{version}
 
 %description devel
 Header files for %{kfname} development.
@@ -114,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/knotifications6/plasma_workspace.notifyrc
 %dir %{_prefix}/libexec/kf6/kpackagehandlers
 %attr(755,root,root) %{_prefix}/libexec/kf6/kpackagehandlers/knshandler
+%attr(755,root,root) %{_prefix}/libexec/kf6/kpackagehandlers/appstreamhandler
 
 %files devel
 %defattr(644,root,root,755)
