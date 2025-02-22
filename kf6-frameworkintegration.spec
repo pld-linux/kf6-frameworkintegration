@@ -8,12 +8,13 @@
 Summary:	HTML rendering engine
 Name:		kf6-%{kfname}
 Version:	6.11.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	e5ba9f692c12dc7f3f4e2291aca802d7
 URL:		http://www.kde.org/
+BuildRequires:	AppStream-qt6-devel >= 1.0
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
 BuildRequires:	Qt6Gui-devel >= %{qtver}
