@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.18
+%define		kdeframever	6.19
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
 Summary:	HTML rendering engine
 Name:		kf6-%{kfname}
-Version:	6.18.0
+Version:	6.19.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	6a1e44c23cb71592f2f7a3e01c0beb67
+# Source0-md5:	07ef9a247c7bc58f8e0356a21a8dfc11
 URL:		http://www.kde.org/
 BuildRequires:	AppStream-qt6-devel >= 1.0
 BuildRequires:	PackageKit-qt6-devel
@@ -112,8 +112,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %ghost %{_libdir}/libKF6Style.so.6
-%attr(755,root,root) %{_libdir}/libKF6Style.so.*.*
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/FrameworkIntegrationPlugin.so
+%{_libdir}/libKF6Style.so.*.*
+%{_libdir}/qt6/plugins/kf6/FrameworkIntegrationPlugin.so
 %{_datadir}/knotifications6/plasma_workspace.notifyrc
 %dir %{_prefix}/libexec/kf6/kpackagehandlers
 %attr(755,root,root) %{_prefix}/libexec/kf6/kpackagehandlers/knshandler
