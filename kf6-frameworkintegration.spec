@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.22
+%define		kdeframever	6.23
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
 Summary:	HTML rendering engine
 Name:		kf6-%{kfname}
-Version:	6.22.0
-Release:	2
+Version:	6.23.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	b82af979e8275d0e2aa0137903499a95
+# Source0-md5:	530b86fbf3b196f7b18ade8d0bded15c
 URL:		http://www.kde.org/
 BuildRequires:	AppStream-qt6-devel >= 1.0
 BuildRequires:	PackageKit-qt6-devel
