@@ -8,7 +8,7 @@
 Summary:	HTML rendering engine
 Name:		kf6-%{kfname}
 Version:	6.24.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -23,7 +23,7 @@ BuildRequires:	Qt6Network-devel >= %{qtver}
 BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	Qt6Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
-BuildRequires:	fonts-TTF-KDE-Oxygen-devel
+BuildRequires:	fonts-TTF-KDE-Oxygen
 BuildRequires:	gettext-devel
 BuildRequires:	kf6-attica-devel >= %{version}
 BuildRequires:	kf6-extra-cmake-modules >= %{version}
