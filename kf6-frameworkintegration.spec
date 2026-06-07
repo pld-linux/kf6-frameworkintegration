@@ -5,7 +5,7 @@
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
-Summary:	HTML rendering engine
+Summary:	Integration of Qt application with KDE workspaces
 Name:		kf6-%{kfname}
 Version:	6.26.0
 Release:	2
@@ -66,8 +66,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		qt6dir		%{_libdir}/qt6
 
 %description
-KHTML is a web rendering engine, based on the KParts technology and
-using KJS for JavaScript support.
+Framework Integration is a set of plugins responsible for better
+integration of Qt applications when running on a KDE Plasma workspace.
+
+%description -l pl.UTF-8
+Framework Integration to zestaw wtyczek odpowiedzialnych za lepszą
+integrację aplikacji Qt z obszarami roboczymi Plazmy.
 
 %package devel
 Summary:	Header files for %{kfname} development
