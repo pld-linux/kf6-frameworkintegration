@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.28
+%define		kdeframever	6.29
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
 Summary:	Integration of Qt application with KDE workspaces
 Name:		kf6-%{kfname}
-Version:	6.28.0
+Version:	6.29.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	eac264bd8bc1032f251c18983e6e534d
+# Source0-md5:	233ebeb1da81ad27819f61aa6adb3b3b
 URL:		http://www.kde.org/
 BuildRequires:	AppStream-qt6-devel >= 1.0
 BuildRequires:	PackageKit-qt6-devel
