@@ -1,11 +1,13 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# test suite
+
 %define		kdeframever	6.31
 %define		qtver		5.15.2
 %define		kfname		frameworkintegration
 
 Summary:	Integration of Qt application with KDE workspaces
+Summary(pl.UTF-8):	Integracja aplikacji Qt z obszarami roboczymi KDE
 Name:		kf6-%{kfname}
 Version:	6.31.0
 Release:	1
@@ -13,7 +15,7 @@ License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	f75c2567b0eac76a0c0e6d3247c66345
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	AppStream-qt6-devel >= 1.0
 BuildRequires:	PackageKit-qt6-devel
 BuildRequires:	Qt6Core-devel >= %{qtver}
@@ -24,7 +26,7 @@ BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	Qt6Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	fonts-TTF-KDE-Oxygen
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kf6-attica-devel >= %{version}
 BuildRequires:	kf6-extra-cmake-modules >= %{version}
 BuildRequires:	kf6-kauth-devel >= %{version}
@@ -54,12 +56,12 @@ BuildRequires:	kf6-sonnet-devel >= %{version}
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires:	kf6-dirs
-#Obsoletes:	kf5-%{kfname} < %{version}
+#Obsoletes:	kf5-frameworkintegration < 6
 %requires_eq_to Qt6Core Qt6Core-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,7 +80,7 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-#Obsoletes:	kf5-%{kfname}-devel < %{version}
+#Obsoletes:	kf5-frameworkintegration-devel < 6
 
 %description devel
 Header files for %{kfname} development.
@@ -101,7 +103,6 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 %ninja_build -C build test
 %endif
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
@@ -109,19 +110,19 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%ghost %{_libdir}/libKF6Style.so.6
 %{_libdir}/libKF6Style.so.*.*
+%ghost %{_libdir}/libKF6Style.so.6
 %{_libdir}/qt6/plugins/kf6/FrameworkIntegrationPlugin.so
+%dir %{_libexecdir}/kf6/kpackagehandlers
+%attr(755,root,root) %{_libexecdir}/kf6/kpackagehandlers/knshandler
+%attr(755,root,root) %{_libexecdir}/kf6/kpackagehandlers/appstreamhandler
 %{_datadir}/knotifications6/plasma_workspace.notifyrc
-%dir %{_prefix}/libexec/kf6/kpackagehandlers
-%attr(755,root,root) %{_prefix}/libexec/kf6/kpackagehandlers/knshandler
-%attr(755,root,root) %{_prefix}/libexec/kf6/kpackagehandlers/appstreamhandler
 
 %files devel
 %defattr(644,root,root,755)
